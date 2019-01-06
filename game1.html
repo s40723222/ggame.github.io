@@ -27,7 +27,7 @@ from random import random, randint
 
 class Bunny(Sprite):
     
-    asset = ImageAsset("images/bunny.png")
+    asset = ImageAsset("images/unnamed.webp")
     
     def __init__(self, position):
         super().__init__(Bunny.asset, position)
@@ -66,7 +66,22 @@ class Bunny(Sprite):
         if self.dragging:
             self.dragging = False
             event.consumed = True
+
+class Sun(Sprite):
+
+    asset = ImageAsset("images/5bae3324Nf584553a.png")
+    width = 40
+    height = 40
+    
+    def __init__(self, position):
+        super().__init__(Sun.asset, position)
+        
+        
+    def step(self):
+            pass
             
+                
+       
         
 class DemoApp(App):
     
@@ -74,6 +89,7 @@ class DemoApp(App):
         super().__init__()
         for i in range(10):
             Bunny((randint(50,self.width),randint(50,self.height)))
+        self.sun = Sun((self.width/2, self.height/2))
         
     def step(self):
         """
